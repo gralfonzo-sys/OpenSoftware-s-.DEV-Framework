@@ -1,0 +1,21 @@
+bin/
+obj/
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Resilient to dotnet publish outputs
+publish/
+
+# GitHub Actions
+.github/

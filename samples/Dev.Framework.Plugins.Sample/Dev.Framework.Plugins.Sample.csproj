@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+	<TargetFramework>net7.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+	<ProjectReference Include="..\..\src\Dev.Framework\Dev.Framework.csproj" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+  <Target Name="CopyToHostPlugins" AfterTargets="Build">
+	<PropertyGroup>
+	  <HostPluginsDir>$(MSBuildThisFileDirectory)..\..\src\Dev.Framework.Host\bin\$(Configuration)\net7.0\plugins\</HostPluginsDir>
+	</PropertyGroup>
+	<MakeDir Directories="$(HostPluginsDir)" />
+	<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(HostPluginsDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>
